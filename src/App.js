@@ -23,7 +23,7 @@ function App() {
   const capture = useCallback(() => {
     setLoad(true);
     const imageSrc = webcamRef.current.getScreenshot();
-    let url = "http://localhost:3001/capture";
+    let url = `${process.env.REACT_APP_API_PATH}/capture`;
     let config = {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
@@ -47,7 +47,7 @@ function App() {
 
   const upload = (file) => {
     setLoad(true);
-    var url = "http://localhost:3001/upload";
+    var url = `${process.env.REACT_APP_API_PATH}/upload`;
     var formData = new FormData();
     formData.append("file", file);
     var config = {

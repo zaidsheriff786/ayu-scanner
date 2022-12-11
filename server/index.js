@@ -37,7 +37,6 @@ const capturedImage = async (req, res, next) => {
     }).then(({ data: { text } }) => {
       return res.send({
         image: imgdata,
-        path: `http://localhost:3001/public/images/ocr_image.jpeg`,
         text: text,
       });
     });
@@ -69,7 +68,6 @@ app.post("/upload", (req, res) => {
           .then(({ data: { text } }) => {
             return res.send({
               image: `data:image/jpeg;base64,${contents}`,
-              path: `http://localhost:3001/public/images/${fileName}`,
               text: text,
             });
           })
